@@ -1,9 +1,10 @@
 #lang scribble/doc
 
+@(require (for-label memoize))
 @begin[(require scribble/manual)
        (require scribble/eval)
        (require scribble/basic)
-       (require (for-label "main.rkt"))]
+       ]
 
 @(define the-eval
    (let ([the-eval (make-base-eval)])
@@ -19,6 +20,8 @@ of effort. The library provides drop-in replacement forms for defining Scheme
 functions that cache their results.
 
 @table-of-contents[]
+
+@defmodule[memoize]{}
 
 @section[#:tag "intro"]{Example: Fibonacci}
 

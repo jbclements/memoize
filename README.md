@@ -1,4 +1,4 @@
-## memoize.rkt
+## memoize
 
 Macros for creating auto-memoizing procedures.
 
