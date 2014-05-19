@@ -2,8 +2,6 @@
 
 (provide define/memo memo-lambda define/memo* memo-lambda*)
 
-(define undefined (letrec ([x x]) x))
-
 (define (assoc/inner-eq arglist cache)
   (cond
     [(null? cache) #f]
@@ -40,7 +38,7 @@
     [(_ lambda-or-define build-hash-table hash-code assoc args body0 body1 ...)
      (syntax-case (lambda-or-define-args #'lambda-or-define #'args) ()
        [()
-        #'(local-declaration lambda-or-define ([cached? #f] [cache undefined])
+        #'(local-declaration lambda-or-define ([cached? #f] [cache #f])
             (lambda-or-define args
               (unless cached?
                 (set! cache (let () body0 body1 ...))
