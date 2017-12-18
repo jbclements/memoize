@@ -11,7 +11,7 @@
      (the-eval '(require "main.rkt"))
      the-eval))
 
-@title[#:tag "top"]{@bold{Memoize}: Lightweight Dynamic Programming}
+@title[#:tag "top"]{Memoize: Lightweight Dynamic Programming}
 
 by Dave Herman (@tt{dherman at ccs dot neu dot edu})
 
