@@ -1,6 +1,8 @@
 #lang racket
 
-(provide define/memo memo-lambda define/memo* memo-lambda*)
+(provide define/memo memo-lambda define/memo* memo-lambda* define/memo+ memo-lambda+)
+
+(require syntax/parse/define)
 
 (define (assoc/inner-eq arglist cache)
   (cond
@@ -88,6 +90,12 @@
     [(_ args body0 body1 ...)
      (memo-lambda-or-define/memo lambda (make-hash) equal-hash-code assoc args body0 body1 ...)]))
 
+(define-simple-macro (memo-lambda+ args body0 body1 ...)
+  (let ([hash-name (make-hash)])
+    (values
+      hash-name
+      (memo-lambda-or-define/memo lambda hash-name equal-hash-code assoc args body0 body1 ...))))
+
 (define-syntax define/memo
   (syntax-rules ()
     [(_ args body0 body1 ...)
@@ -97,3 +105,8 @@
   (syntax-rules ()
     [(_ args body0 body1 ...)
      (memo-lambda-or-define/memo define (make-hash) equal-hash-code assoc args body0 body1 ...)]))
+
+(define-simple-macro (define/memo+ hash-name:id args body0 body1 ...)
+  (begin
+    (define hash-name (make-hash))
+    (memo-lambda-or-define/memo define hash-name equal-hash-code assoc args body0 body1 ...)))
