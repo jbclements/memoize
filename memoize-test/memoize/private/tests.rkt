@@ -3,7 +3,7 @@
 (require rackunit
          rackunit/text-ui
          racket/class
-         "../main.rkt")
+         memoize)
 (provide all-tests)
 
 (define number-of-runs (make-parameter 0))
