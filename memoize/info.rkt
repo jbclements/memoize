@@ -1,10 +1,13 @@
 #lang setup/infotab
+(define collection 'multi)
 (define name "memoize")
+
+(define deps '("memoize-lib" "memoize-doc" "memoize-test"))
+(define implies '("memoize-lib" "memoize-doc" "memoize-test"))
+
 (define blurb
   (list "Macros for defining memoized procedures."))
-(define primary-file "main.rkt")
 (define categories '(misc))
-(define scribblings '(("memoize.scrbl" ())))
 (define release-notes
   '((p "Updated for Racket.")))
 (define repositories '("4.x"))
