@@ -12,4 +12,4 @@
   '((p "Updated for Racket.")))
 (define repositories '("4.x"))
 (define required-core-version "5.0")
-(define version "3")
+(define version "3.0")
