@@ -1,5 +1,6 @@
-#lang racket
+#lang racket/base
 
+(require (for-syntax racket/base))
 (provide define/memo memo-lambda define/memo* memo-lambda*)
 
 (define (assoc/inner-eq arglist cache)
