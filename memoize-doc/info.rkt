@@ -4,7 +4,6 @@
 (define blurb
   (list "Documentation memoize-lib."))
 (define categories '(misc))
-(define scribblings '(("memoize.scrbl" ())))
 (define release-notes
   '((p "Updated for Racket.")))
 (define repositories '("4.x"))
